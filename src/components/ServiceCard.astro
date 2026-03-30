@@ -1,0 +1,35 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  url: string;
+  icon: string;
+  status: "live" | "coming-soon";
+}
+
+const { name, description, url, icon, status } = Astro.props;
+const isLive = status === "live";
+---
+
+<a
+  href={isLive ? url : undefined}
+  target={isLive ? "_blank" : undefined}
+  rel={isLive ? "noopener noreferrer" : undefined}
+  class:list={[
+    "block rounded-xl border border-zinc-800 bg-zinc-900/60 p-6 transition-colors",
+    isLive
+      ? "hover:border-zinc-600 hover:bg-zinc-900 cursor-pointer"
+      : "opacity-60 cursor-default",
+  ]}
+>
+  <div class="flex items-center gap-3 mb-3">
+    <span class="text-2xl">{icon}</span>
+    <h2 class="text-lg font-semibold text-zinc-100">{name}</h2>
+    {isLive ? (
+      <span class="ml-auto h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_6px_theme(colors.emerald.500)]" title="Online" />
+    ) : (
+      <span class="ml-auto text-xs font-medium text-zinc-500 uppercase tracking-wide">Coming Soon</span>
+    )}
+  </div>
+  <p class="text-sm text-zinc-400">{description}</p>
+</a>
