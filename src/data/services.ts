@@ -26,7 +26,7 @@ export const services: Service[] = [
     description: "Network-wide ad blocking",
     url: "https://pihole.icychavez.us",
     icon: "🛡️",
-    status: "coming-soon",
+    status: "live",
   },
   {
     name: "Downloads",
