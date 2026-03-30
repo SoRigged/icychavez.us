@@ -12,7 +12,7 @@ export const services: Service[] = [
     description: "Family recipes passed down through generations",
     url: "https://cookbook.icychavez.us",
     icon: "🍳",
-    status: "coming-soon",
+    status: "live",
   },
   {
     name: "Plex",
