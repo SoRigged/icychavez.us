@@ -26,7 +26,7 @@ const isLive = status === "live";
     <span class="text-2xl">{icon}</span>
     <h2 class="text-lg font-semibold text-zinc-100">{name}</h2>
     {isLive ? (
-      <span class="ml-auto h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_6px_theme(colors.emerald.500)]" title="Online" />
+      <span class="ml-auto h-2.5 w-2.5 rounded-full bg-emerald-500" style="box-shadow: 0 0 6px #10b981;" title="Online" />
     ) : (
       <span class="ml-auto text-xs font-medium text-zinc-500 uppercase tracking-wide">Coming Soon</span>
     )}

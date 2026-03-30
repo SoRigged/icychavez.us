@@ -50,11 +50,13 @@ import { services } from "../data/services";
       try {
         const res = await fetch(url, { mode: "no-cors", signal: AbortSignal.timeout(5000) });
         dot.classList.remove("bg-zinc-700");
-        dot.classList.add("bg-emerald-500", "shadow-[0_0_6px_theme(colors.emerald.500)]");
+        dot.classList.add("bg-emerald-500");
+        dot.style.boxShadow = "0 0 6px #10b981";
         dot.title = "Online";
       } catch {
         dot.classList.remove("bg-zinc-700");
-        dot.classList.add("bg-red-500", "shadow-[0_0_6px_theme(colors.red.500)]");
+        dot.classList.add("bg-red-500");
+        dot.style.boxShadow = "0 0 6px #ef4444";
         dot.title = "Offline";
       }
     }
