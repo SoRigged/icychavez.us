@@ -1,17 +1,23 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+import { services } from "../data/services";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Icy Navigator">
+  <header class="pt-12 pb-8 text-center">
+    <h1 class="text-3xl font-bold tracking-tight text-zinc-100">Icy Navigator</h1>
+  </header>
+
+  <main class="flex-1 mx-auto w-full max-w-3xl px-4 pb-12">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {services.map((service) => (
+        <ServiceCard {...service} />
+      ))}
+    </div>
+  </main>
+
+  <footer class="py-6 text-center text-sm text-zinc-600">
+    Chavez
+  </footer>
+</Layout>
