@@ -1,0 +1,65 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { services } from "../data/services";
+---
+
+<Layout title="Status — Icy Navigator">
+  <header class="pt-12 pb-8 text-center">
+    <a href="/" class="text-3xl font-bold tracking-tight text-zinc-100 hover:text-zinc-300 transition-colors">
+      Icy Navigator
+    </a>
+    <p class="mt-2 text-sm text-zinc-500">Service Status</p>
+  </header>
+
+  <main class="flex-1 mx-auto w-full max-w-xl px-4 pb-12">
+    <div class="space-y-3" id="status-list">
+      {services.map((service) => (
+        <div
+          class="flex items-center justify-between rounded-lg border border-zinc-800 bg-zinc-900/60 px-5 py-4"
+          data-url={service.status === "live" ? service.url : ""}
+        >
+          <div class="flex items-center gap-3">
+            <span class="text-lg">{service.icon}</span>
+            <span class="text-zinc-200 font-medium">{service.name}</span>
+          </div>
+          <span class="status-dot h-3 w-3 rounded-full bg-zinc-700" title="Checking..." />
+        </div>
+      ))}
+    </div>
+  </main>
+
+  <footer class="py-6 text-center text-sm text-zinc-600">
+    Chavez
+  </footer>
+</Layout>
+
+<script>
+  async function checkServices() {
+    const items = document.querySelectorAll("#status-list [data-url]");
+    for (const item of items) {
+      const url = (item as HTMLElement).dataset.url;
+      const dot = item.querySelector(".status-dot") as HTMLElement;
+
+      if (!url) {
+        dot.classList.remove("bg-zinc-700");
+        dot.classList.add("bg-zinc-600");
+        dot.title = "Not configured";
+        continue;
+      }
+
+      try {
+        const res = await fetch(url, { mode: "no-cors", signal: AbortSignal.timeout(5000) });
+        dot.classList.remove("bg-zinc-700");
+        dot.classList.add("bg-emerald-500", "shadow-[0_0_6px_theme(colors.emerald.500)]");
+        dot.title = "Online";
+      } catch {
+        dot.classList.remove("bg-zinc-700");
+        dot.classList.add("bg-red-500", "shadow-[0_0_6px_theme(colors.red.500)]");
+        dot.title = "Offline";
+      }
+    }
+  }
+
+  checkServices();
+  setInterval(checkServices, 30000);
+</script>
