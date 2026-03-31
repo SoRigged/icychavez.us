@@ -19,7 +19,7 @@ export const services: Service[] = [
     description: "Movies, shows, and media streaming",
     url: "https://plex.icychavez.us",
     icon: "🎬",
-    status: "coming-soon",
+    status: "live",
   },
   {
     name: "Pi-hole",
@@ -33,6 +33,6 @@ export const services: Service[] = [
     description: "Download client and automation",
     url: "https://downloads.icychavez.us",
     icon: "⬇️",
-    status: "coming-soon",
+    status: "live",
   },
 ];
