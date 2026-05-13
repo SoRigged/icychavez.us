@@ -35,4 +35,18 @@ export const services: Service[] = [
     icon: "⬇️",
     status: "live",
   },
+  {
+    name: "Books",
+    description: "Ebook library",
+    url: "https://books.icychavez.us",
+    icon: "📚",
+    status: "live",
+  },
+  {
+    name: "Status",
+    description: "Service uptime and health",
+    url: "https://status.icychavez.us",
+    icon: "📡",
+    status: "live",
+  },
 ];
