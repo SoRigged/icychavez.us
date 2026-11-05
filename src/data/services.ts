@@ -43,6 +43,13 @@ export const services: Service[] = [
     status: "live",
   },
   {
+    name: "Comics",
+    description: "Comic reader",
+    url: "https://comics.icychavez.us",
+    icon: "📖",
+    status: "live",
+  },
+  {
     name: "Status",
     description: "Service uptime and health",
     url: "https://status.icychavez.us",
