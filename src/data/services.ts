@@ -50,6 +50,13 @@ export const services: Service[] = [
     status: "live",
   },
   {
+    name: "Music",
+    description: "Music player and playlist tools",
+    url: "https://music.icychavez.us",
+    icon: "🎵",
+    status: "live",
+  },
+  {
     name: "Status",
     description: "Service uptime and health",
     url: "https://status.icychavez.us",
